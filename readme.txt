@@ -1,0 +1,1 @@
+Simple attempt to create a todo app using React and Tailwind CSS 
