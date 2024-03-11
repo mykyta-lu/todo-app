@@ -15,6 +15,10 @@ const App = () => {
     setTaskList([...taskList, task])
   }
 
+  const handleDeleteTask = (task) => {
+    setTaskList(taskList.filter(el => el !== task))
+  }
+
   return (<main>
     <div className="w-full mt-[64px] md:w-[468px] md:mt-[128px] mx-auto bg-blue-200 px-4 py-6 rounded-md">
       <h1 className="font-sans font-extrabold mb-4 text-xl lowercase">do it tomorrow:</h1>
@@ -39,8 +43,9 @@ const App = () => {
             return <li 
                       className="flex justify-between hover:bg-white p-1 rounded-sm" 
                       key={taskList.indexOf(el)}
-                    >{el}</li>
-          })}
+                    >{el}<button onClick={() => handleDeleteTask(el)}>X</button></li>
+            })
+        }
       </ul>
       <div className="bg-white w-full h-[2px] rounded-lg my-4"></div>
       <div className="flex justify-between mt-4">
